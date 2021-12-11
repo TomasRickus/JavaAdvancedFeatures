@@ -9,6 +9,7 @@ class CalculatorTest {
 
     private Calculator calculator = new Calculator();
 
+
     @Test
     void testAddTwoNumbers() {
         //given
@@ -98,8 +99,17 @@ class CalculatorTest {
 
     }
 
-    @Test()
-    void testDivideNumberByZero () {
+
+    @Test
+    void testDivideNumberByZero() {
+
+        ArithmeticException exception = assertThrows(
+                ArithmeticException.class,
+                () -> calculator.divideIntegers(5, 0));
+
+        assertTrue(exception.getMessage().contains("by zero"));
+
 
     }
+
 }
